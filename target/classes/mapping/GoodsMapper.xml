@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lecheng.pos.dao.GoodsDao">
+
+	<select id="queryById" parameterType="int"
+		resultType="com.lecheng.pos.pojo.Goods">
+		select
+			g.GOOD_ID as "goodId",
+			g.GOOD_NAME as "goodName",
+			g.GOOD_SKU as "goodSku",
+			g.GOOD_PRICE as "goodPrice",
+			g.GOOD_CATEGORY as "goodCategory",
+			g.GOOD_ITEM as "goodItem",
+			g.GOOD_DISCOUNT as "goodDiscount"
+		from
+			GOODS as g
+		where
+			g.GOOD_ID=#{id}
+	</select>
+
+	<select id="queryByItemId" parameterType="java.lang.String"
+		resultType="com.lecheng.pos.pojo.Goods">
+		select
+		g.GOOD_ID as "goodId",
+		g.GOOD_NAME as "goodName",
+		g.GOOD_SKU as "goodSku",
+		g.GOOD_PRICE as "goodPrice",
+		g.GOOD_CATEGORY as "goodCategory",
+		g.GOOD_ITEM as "goodItem",
+		g.GOOD_DISCOUNT as "goodDiscount"
+		from
+		GOODS as g
+		where
+		g.GOOD_ITEM = #{itemId}
+	</select>
+	
+	<select id="queryAll" resultType="com.lecheng.pos.pojo.Goods" >
+		select
+			g.GOOD_ID as "goodId",
+			g.GOOD_NAME as "goodName",
+			g.GOOD_SKU as "goodSku",
+			g.GOOD_PRICE as "goodPrice",
+			g.GOOD_CATEGORY as "goodCategory",
+			g.GOOD_ITEM as "goodItem",
+			g.GOOD_DISCOUNT as "goodDiscount"
+		from
+			GOODS as g 
+	</select>
+	<update id="updateDiscountById" parameterType="com.lecheng.pos.pojo.Goods">
+		update 
+			GOODS
+		set 
+			GOOD_DISCOUNT = #{goodDiscount}
+		where
+			GOOD_ID = #{goodId}
+	</update>
+</mapper>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lecheng.pos.dao.ShopListDao">
+
+	<select id="queryAll" resultType="com.lecheng.pos.pojo.ShopList">
+		select
+			s.SHOPLIST_ID as "shopListId",
+			s.ITEM_ID as "itemId"
+		from
+			SHOPLIST as s
+	</select>
+</mapper>

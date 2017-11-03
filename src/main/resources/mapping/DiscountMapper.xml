@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lecheng.pos.dao.DiscountDao">
+
+	<select id="queryAll" resultType="com.lecheng.pos.pojo.Discount">
+		select
+			DISCOUNT_ID as "discountId",
+			DISCOUNT_LEVEL as "discountLevel"
+		from
+			DISCOUNT
+	</select>
+</mapper>
